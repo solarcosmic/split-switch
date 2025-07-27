@@ -24,77 +24,79 @@ position_smoothing_enabled = true
 position_smoothing_speed = 2.0
 editor_draw_limits = true
 
-[node name="Platform" type="StaticBody2D" parent="."]
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Platform" type="StaticBody2D" parent="Walls"]
 position = Vector2(186, 1044)
 scale = Vector2(0.240002, 0.240002)
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform"]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Walls/Platform"]
 modulate = Color(0.197937, 0.197937, 0.197937, 1)
 mesh = SubResource("QuadMesh_nnsk1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Platform"]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_rwgxs")
 
-[node name="Platform2" type="StaticBody2D" parent="."]
+[node name="Platform2" type="StaticBody2D" parent="Walls"]
 position = Vector2(561, 951)
 scale = Vector2(0.240002, 0.240002)
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform2"]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Walls/Platform2"]
 modulate = Color(0.197937, 0.197937, 0.197937, 1)
 mesh = SubResource("QuadMesh_nnsk1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Platform2"]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_rwgxs")
 
-[node name="Platform3" type="StaticBody2D" parent="."]
+[node name="Platform3" type="StaticBody2D" parent="Walls"]
 position = Vector2(917, 838)
 scale = Vector2(0.240002, 0.240002)
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform3"]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Walls/Platform3"]
 modulate = Color(0.197937, 0.197937, 0.197937, 1)
 mesh = SubResource("QuadMesh_nnsk1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Platform3"]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_rwgxs")
 
-[node name="Wall" type="StaticBody2D" parent="."]
+[node name="Wall" type="StaticBody2D" parent="Walls"]
 position = Vector2(44, 621)
 scale = Vector2(0.0651956, -7.82647)
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Wall"]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Walls/Wall"]
 modulate = Color(0.197937, 0.197937, 0.197937, 1)
 mesh = SubResource("QuadMesh_nnsk1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall"]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_rwgxs")
 
-[node name="Wall2" type="StaticBody2D" parent="."]
+[node name="Wall2" type="StaticBody2D" parent="Walls"]
 position = Vector2(691, 1077)
 rotation = -1.5708
 scale = Vector2(0.0651956, -7.82647)
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Wall2"]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Walls/Wall2"]
 modulate = Color(0.197937, 0.197937, 0.197937, 1)
 rotation = -1.5708
 mesh = SubResource("QuadMesh_nnsk1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall2"]
 position = Vector2(-0.5, 0)
 rotation = -1.5708
 shape = SubResource("RectangleShape2D_rwgxs")
 
-[node name="Wall3" type="StaticBody2D" parent="."]
+[node name="Wall3" type="StaticBody2D" parent="Walls"]
 position = Vector2(1888, 626)
 scale = Vector2(0.0651956, -7.82647)
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Wall3"]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Walls/Wall3"]
 modulate = Color(0.197937, 0.197937, 0.197937, 1)
 mesh = SubResource("QuadMesh_nnsk1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall3"]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_rwgxs")
