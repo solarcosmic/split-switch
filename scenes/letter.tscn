@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bex4pu1vw60in"]
+
+[ext_resource type="FontFile" uid="uid://b6g10xbru6tmj" path="res://assets/fonts/PixeloidSans.ttf" id="1_kg060"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_s3w0n"]
+font = ExtResource("1_kg060")
+font_size = 32
+
+[node name="Letter" type="Label"]
+modulate = Color(1, 1, 2, 1)
+size_flags_vertical = 8
+label_settings = SubResource("LabelSettings_s3w0n")
+horizontal_alignment = 1
