@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dvii0g51bqqpt" path="res://scenes/intro.gd" id="1_yjqpq"]
 [ext_resource type="FontFile" uid="uid://b6g10xbru6tmj" path="res://assets/fonts/PixeloidSans.ttf" id="2_4bx60"]
-[ext_resource type="AudioStream" uid="uid://bvm8m7l8t40u5" path="res://assets/sounds/orch_hit.ogg" id="3_4bx60"]
+[ext_resource type="AudioStream" uid="uid://cgg00hhvvjd10" path="res://assets/sounds/orch_hit_new.ogg" id="3_4bx60"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ioskq"]
 font = ExtResource("2_4bx60")
