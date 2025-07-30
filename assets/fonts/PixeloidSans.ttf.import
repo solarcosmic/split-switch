@@ -2,18 +2,18 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://b2w3ue6x3g8pe"
-path="res://.godot/imported/PixelifySans.ttf-4613dc276f227b5d31d032a4586e3281.fontdata"
+uid="uid://b6g10xbru6tmj"
+path="res://.godot/imported/PixeloidSans.ttf-814bbefeca85d51f6673fab7cdd43ac0.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/PixelifySans.ttf"
-dest_files=["res://.godot/imported/PixelifySans.ttf-4613dc276f227b5d31d032a4586e3281.fontdata"]
+source_file="res://assets/fonts/PixeloidSans.ttf"
+dest_files=["res://.godot/imported/PixeloidSans.ttf-814bbefeca85d51f6673fab7cdd43ac0.fontdata"]
 
 [params]
 
 Rendering=null
-antialiasing=1
+antialiasing=0
 generate_mipmaps=false
 disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
@@ -22,13 +22,13 @@ msdf_size=48
 allow_system_fallback=true
 force_autohinter=false
 hinting=1
-subpixel_positioning=4
+subpixel_positioning=0
 keep_rounding_remainders=true
 oversampling=5.0
 Fallbacks=null
 fallbacks=[]
 Compress=null
-compress=true
+compress=false
 preload=[]
 language_support={}
 script_support={}

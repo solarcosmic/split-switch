@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://b2w3ue6x3g8pe"
-path="res://.godot/imported/PixelifySans.ttf-4613dc276f227b5d31d032a4586e3281.fontdata"
+uid="uid://ocl56mx8eurj"
+path="res://.godot/imported/Pixeled.ttf-e8bbf35245fcf80d16d4c25fafd33f1f.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/PixelifySans.ttf"
-dest_files=["res://.godot/imported/PixelifySans.ttf-4613dc276f227b5d31d032a4586e3281.fontdata"]
+source_file="res://assets/fonts/Pixeled.ttf"
+dest_files=["res://.godot/imported/Pixeled.ttf-e8bbf35245fcf80d16d4c25fafd33f1f.fontdata"]
 
 [params]
 
@@ -24,7 +24,7 @@ force_autohinter=false
 hinting=1
 subpixel_positioning=4
 keep_rounding_remainders=true
-oversampling=5.0
+oversampling=0.0
 Fallbacks=null
 fallbacks=[]
 Compress=null
