@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Split Switch"
-run/main_scene="uid://k402iischqul"
+run/main_scene="uid://cqclpi7l1ca54"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
@@ -23,7 +23,7 @@ window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/mode=4
 window/size/resizable=false
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 display_server/driver.linuxbsd="wayland"
 
 [editor_plugins]
