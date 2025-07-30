@@ -20,6 +20,7 @@ script = ExtResource("1_yjqpq")
 letter_object = NodePath("CanvasLayer/Letter")
 grid_container = NodePath("CanvasLayer/GridContainer")
 main_label = NodePath("CanvasLayer/Label")
+letter_scene = ExtResource("4_i2l1n")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

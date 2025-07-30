@@ -6,6 +6,8 @@ func _ready():
 
 var total = 0
 func _process(delta):
+	if Input.is_action_pressed("red"): # red button
+		$Glasses.self_modulate = Color.from_rgba8(255, 0, 0, 102)
 	if Input.is_action_pressed("esc"):
 		total += delta
 		print(total)

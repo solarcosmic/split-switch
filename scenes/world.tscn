@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://k402iischqul"]
+[gd_scene load_steps=9 format=3 uid="uid://k402iischqul"]
 
 [ext_resource type="PackedScene" uid="uid://t6f5qrt5q1y8" path="res://scenes/player.tscn" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://dpxxpjfggaogn" path="res://scenes/block.tscn" id="2_rwgxs"]
-[ext_resource type="FontFile" uid="uid://b2w3ue6x3g8pe" path="res://assets/fonts/PixelifySans.ttf" id="3_4wyf3"]
 [ext_resource type="Script" uid="uid://c1kjsfe6gm5b7" path="res://scenes/gameui.gd" id="3_k0juu"]
+[ext_resource type="FontFile" uid="uid://b6g10xbru6tmj" path="res://assets/fonts/PixeloidSans.ttf" id="4_k0juu"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_nnsk1"]
 size = Vector2(1000, 100)
@@ -12,8 +12,10 @@ size = Vector2(1000, 100)
 size = Vector2(1001, 100)
 
 [sub_resource type="LabelSettings" id="LabelSettings_rwgxs"]
-font = ExtResource("3_4wyf3")
+font = ExtResource("4_k0juu")
 font_size = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0juu"]
 
 [node name="World" type="Node2D"]
 
@@ -92,17 +94,27 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -521.0
-offset_top = -39.0
+offset_left = -591.0
+offset_top = -96.0
+offset_bottom = -56.8
 grow_horizontal = 0
 grow_vertical = 0
+scale = Vector2(0.88, 0.88)
 size_flags_vertical = 8
 text = "[R G B] to switch between glasses"
 label_settings = SubResource("LabelSettings_rwgxs")
 
 [node name="Exiting" type="Label" parent="CanvasLayer"]
-offset_right = 521.0
-offset_bottom = 39.0
+offset_left = 28.0
+offset_top = 17.0
+offset_right = 549.0
+offset_bottom = 56.2
 size_flags_vertical = 8
 text = "Exiting..."
 label_settings = SubResource("LabelSettings_rwgxs")
+
+[node name="Glasses" type="Panel" parent="CanvasLayer"]
+offset_top = 8.0
+offset_right = 1280.0
+offset_bottom = 728.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_k0juu")
