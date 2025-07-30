@@ -21,6 +21,7 @@ letter_object = NodePath("CanvasLayer/Letter")
 grid_container = NodePath("CanvasLayer/GridContainer")
 main_label = NodePath("CanvasLayer/Label")
 letter_scene = ExtResource("4_i2l1n")
+wait_multiplier = 1.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
