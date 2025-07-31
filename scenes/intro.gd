@@ -10,6 +10,8 @@ class_name Intro
 var type_speed: float = 15
 var type_time: float
 var is_in_grid = false
+var finished_name_check = false
+var finished_term = false
 
 func wait(amount):
 	await get_tree().create_timer(amount * wait_multiplier).timeout
@@ -82,16 +84,22 @@ func lsprocess():
 	print(grid_container.get_child(cur_index))
 	grid_container.get_child(cur_index).modulate = Color(1,0,0)
 
+func set_cur_index(amount):
+	if amount > 26 or amount < 1:
+		if amount < 0:
+			cur_index = 26
+		else:
+			cur_index = 0
+	else:
+		cur_index = amount
+	lsprocess()
+
 func _process(delta):
 	if is_in_grid:
 		if Input.is_action_just_released("right_arrow"):
-			cur_index += 1
-			print(cur_index)
-			lsprocess()
+			set_cur_index(cur_index + 1)
 		if Input.is_action_just_released("left_arrow"):
-			cur_index -= 1
-			print(cur_index)
-			lsprocess()
+			set_cur_index(cur_index - 1)
 		if Input.is_action_just_released("enter"):
 			var character = grid_container.get_child(cur_index).text
 			if character == "←":
@@ -100,10 +108,29 @@ func _process(delta):
 				if name_label.text.length() < 7:
 					name_label.text += character
 		if Input.is_action_just_released("down_arrow"):
-			cur_index += 9
-			print(cur_index)
-			lsprocess()
+			if cur_index + 9 < 27:
+				set_cur_index(cur_index + 9)
 		if Input.is_action_just_released("up_arrow"):
-			cur_index -= 9
-			print(cur_index)
-			lsprocess()
+			if cur_index - 9 >= 0:
+				set_cur_index(cur_index - 9)
+	if Input.is_action_just_released("x"):
+		if not finished_name_check and is_in_grid:
+			finished_name_check = true
+			is_in_grid = false
+			create_tween().tween_property($CanvasLayer/Label2, "modulate:a", 0, 1).set_trans(Tween.TRANS_SINE)
+			create_tween().tween_property($CanvasLayer/GridContainer, "modulate:a", 0, 1).set_trans(Tween.TRANS_SINE)
+			create_tween().tween_property($CanvasLayer/Label, "modulate:a", 0, 1).set_trans(Tween.TRANS_SINE)
+			await wait(2.0)
+			main_label.text = ""
+			main_label.modulate.a = 1
+			display("Are you satisfied with this name?")
+			await wait(3.0)
+			finished_term = true
+			$CanvasLayer/Label2.text = "Press X to continue, N to go back."
+			create_tween().tween_property($CanvasLayer/Label2, "modulate:a", 0.5, 1).set_trans(Tween.TRANS_SINE)
+		elif finished_term and finished_name_check:
+			create_tween().tween_property($CanvasLayer/Label2, "modulate:a", 0, 1).set_trans(Tween.TRANS_SINE)
+			create_tween().tween_property(main_label, "modulate:a", 0, 1).set_trans(Tween.TRANS_SINE)
+			await wait(1.5)
+			$CanvasLayer/AudioStreamPlayer.stop()
+			name_label.text = ""
