@@ -97,7 +97,8 @@ func _process(delta):
 			if character == "←":
 				name_label.text = name_label.text.left(name_label.text.length() - 1)
 			else:
-				name_label.text += character
+				if name_label.text.length() < 7:
+					name_label.text += character
 		if Input.is_action_just_released("down_arrow"):
 			cur_index += 9
 			print(cur_index)
