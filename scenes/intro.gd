@@ -95,7 +95,14 @@ func _process(delta):
 		if Input.is_action_just_released("enter"):
 			var character = grid_container.get_child(cur_index).text
 			if character == "←":
-				name_label.text.erase(-1)
+				name_label.text = name_label.text.left(name_label.text.length() - 1)
 			else:
 				name_label.text += character
-			
+		if Input.is_action_just_released("down_arrow"):
+			cur_index += 9
+			print(cur_index)
+			lsprocess()
+		if Input.is_action_just_released("up_arrow"):
+			cur_index -= 9
+			print(cur_index)
+			lsprocess()
