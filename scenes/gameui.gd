@@ -1,7 +1,8 @@
 extends CanvasLayer
 
 func _ready():
-	$Exiting.modulate.a = 0
+	$Glasses/Exiting.modulate.a = 0
+	$Glasses.modulate.a = 0
 	# add code to fade in / out
 
 var total = 0

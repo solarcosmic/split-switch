@@ -29,9 +29,9 @@ func _ready():
 	$CanvasLayer/AudioStreamPlayer.play()
 	display("You don't know who I am.")
 	await wait(5.0)
-	display("... I know who you are.")
+	display("I know who you are.")
 	await wait(4.0)
-	display("Let us create another.")
+	display("Let us create another being.")
 	await wait(4.0)
 	display("What do you want to name it?")
 	await wait(2.0)
@@ -134,3 +134,14 @@ func _process(delta):
 			await wait(1.5)
 			$CanvasLayer/AudioStreamPlayer.stop()
 			name_label.text = ""
+			main_label.modulate.a = 0
+			await wait(1.5)
+			main_label.position = Vector2($CanvasLayer/Label.position.x, $CanvasLayer/Label.position.y + 90)
+			main_label.text = ""
+			main_label.modulate.a = 1
+			display("No one gets to choose.")
+			await wait(5)
+			main_label.text = ""
+			main_label.modulate.a = 0
+			await wait(2)
+			get_tree().change_scene_to_file("res://scenes/world.tscn")
