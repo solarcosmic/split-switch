@@ -145,3 +145,23 @@ func _process(delta):
 			main_label.modulate.a = 0
 			await wait(2)
 			get_tree().change_scene_to_file("res://scenes/world.tscn")
+	if Input.is_action_just_released("n"):
+		if finished_term and finished_name_check:
+			create_tween().tween_property($CanvasLayer/Label2, "modulate:a", 0, 1).set_trans(Tween.TRANS_SINE)
+			create_tween().tween_property(main_label, "modulate:a", 0, 1).set_trans(Tween.TRANS_SINE)
+			create_tween().tween_property(name_label, "modulate:a", 0, 1).set_trans(Tween.TRANS_SINE)
+			await wait(2)
+			main_label.text = ""
+			main_label.modulate.a = 1
+			main_label.position = Vector2($CanvasLayer/Label.position.x, $CanvasLayer/Label.position.y + 90)
+			name_label.text = ""
+			name_label.modulate.a = 1
+			display("What do you want to name it?")
+			await wait(2.0)
+			is_in_grid = true
+			finished_term = false
+			finished_name_check = false
+			create_tween().tween_property(main_label, "position", Vector2($CanvasLayer/Label.position.x, $CanvasLayer/Label.position.y - 90), 1).set_trans(Tween.TRANS_SINE)
+			await wait(0.5)
+			create_tween().tween_property($CanvasLayer/Label2, "modulate:a", 0.5, 1).set_trans(Tween.TRANS_SINE)
+			create_tween().tween_property($CanvasLayer/GridContainer, "modulate:a", 1, 1).set_trans(Tween.TRANS_SINE)

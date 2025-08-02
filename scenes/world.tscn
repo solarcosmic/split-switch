@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://k402iischqul"]
+[gd_scene load_steps=11 format=3 uid="uid://k402iischqul"]
 
 [ext_resource type="PackedScene" uid="uid://t6f5qrt5q1y8" path="res://scenes/player.tscn" id="1_nnsk1"]
-[ext_resource type="PackedScene" uid="uid://dpxxpjfggaogn" path="res://scenes/block.tscn" id="2_rwgxs"]
+[ext_resource type="Script" uid="uid://rxkjf36lhreb" path="res://scenes/player_camera.gd" id="2_71j4m"]
+[ext_resource type="PackedScene" uid="uid://bx0r78ftiwib0" path="res://scenes/map_block.tscn" id="2_k0juu"]
 [ext_resource type="Script" uid="uid://c1kjsfe6gm5b7" path="res://scenes/gameui.gd" id="3_k0juu"]
 [ext_resource type="FontFile" uid="uid://b6g10xbru6tmj" path="res://assets/fonts/PixeloidSans.ttf" id="4_k0juu"]
 
@@ -11,14 +12,22 @@ size = Vector2(1000, 100)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rwgxs"]
 size = Vector2(1001, 100)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71j4m"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [sub_resource type="LabelSettings" id="LabelSettings_rwgxs"]
 font = ExtResource("4_k0juu")
 font_size = 32
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.521569)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qfnet"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="World" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_nnsk1")]
-position = Vector2(204, -1782)
+position = Vector2(204, 604)
 speed = 550
 jump_force = 700
 
@@ -30,8 +39,12 @@ limit_bottom = 1280
 position_smoothing_enabled = true
 position_smoothing_speed = 2.0
 editor_draw_limits = true
+script = ExtResource("2_71j4m")
+randomStrength = 15.0
+shakeFade = 10.0
 
 [node name="Walls" type="Node2D" parent="."]
+visible = false
 
 [node name="Wall" type="StaticBody2D" parent="Walls"]
 position = Vector2(44, 621)
@@ -77,23 +90,38 @@ shape = SubResource("RectangleShape2D_rwgxs")
 
 [node name="Blocks" type="Node2D" parent="."]
 
-[node name="Block" parent="Blocks" instance=ExtResource("2_rwgxs")]
-position = Vector2(199, 982)
+[node name="MapBlock" parent="Blocks" instance=ExtResource("2_k0juu")]
+position = Vector2(234, 56)
+scale = Vector2(25.08, 6.2)
 
-[node name="Block2" parent="Blocks" instance=ExtResource("2_rwgxs")]
-position = Vector2(586, 852)
+[node name="MapBlock3" parent="Blocks" instance=ExtResource("2_k0juu")]
+position = Vector2(359, 405)
+scale = Vector2(40.28, 6.2)
 
-[node name="Block3" parent="Blocks" instance=ExtResource("2_rwgxs")]
-position = Vector2(1100, 852)
+[node name="MapBlock4" parent="Blocks" instance=ExtResource("2_k0juu")]
+position = Vector2(941, 547)
+scale = Vector2(7.48, 6.88)
+
+[node name="MapBlock6" parent="Blocks" instance=ExtResource("2_k0juu")]
+position = Vector2(1085, 284)
+scale = Vector2(7.48, 6.88)
+
+[node name="MapBlock5" parent="Blocks" instance=ExtResource("2_k0juu")]
+position = Vector2(1213, 366)
+scale = Vector2(7.48, 26.88)
+
+[node name="MapBlock2" parent="Blocks" instance=ExtResource("2_k0juu")]
+position = Vector2(616, 662)
+scale = Vector2(75.96, 6.2)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("3_k0juu")
 
 [node name="Glasses" type="Panel" parent="CanvasLayer"]
-visible = false
 offset_top = 8.0
 offset_right = 1280.0
 offset_bottom = 728.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_71j4m")
 
 [node name="Label" type="Label" parent="CanvasLayer/Glasses"]
 layout_mode = 1
@@ -121,3 +149,10 @@ offset_bottom = 48.2
 size_flags_vertical = 8
 text = "Exiting..."
 label_settings = SubResource("LabelSettings_rwgxs")
+
+[node name="Transition" type="Panel" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(1280, 720)
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qfnet")

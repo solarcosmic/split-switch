@@ -1,8 +1,16 @@
 extends CanvasLayer
 
+func wait(amount):
+	await get_tree().create_timer(amount).timeout
+
 func _ready():
+	$Transition.modulate.a = 1
 	$Glasses/Exiting.modulate.a = 0
-	$Glasses.modulate.a = 0
+	$Glasses.modulate.a = 1
+	$Glasses/Label.modulate.a = 0
+	create_tween().tween_property($Transition, "modulate:a", 0, 3).set_trans(Tween.TRANS_SINE)
+	await wait(3)
+	create_tween().tween_property($Glasses/Label, "modulate:a", 1, 1).set_trans(Tween.TRANS_SINE)
 	# add code to fade in / out
 
 var total = 0
