@@ -11,6 +11,7 @@ func apply_shake():
 	shake_strength = randomStrength
 
 func _process(delta):
+	#print(get_viewport().canvas_transform)
 	if Input.is_action_just_pressed("x"):
 		apply_shake()
 		

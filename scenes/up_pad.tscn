@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4rxhxx8y54re"]
+
+[ext_resource type="Texture2D" uid="uid://dlktmf0q5nxnt" path="res://assets/up_pad.png" id="2_g5kcx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5vie"]
+size = Vector2(94, 184)
+
+[node name="UpPad" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4.64, 4.64)
+texture = ExtResource("2_g5kcx")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -18)
+shape = SubResource("RectangleShape2D_d5vie")
+disabled = true

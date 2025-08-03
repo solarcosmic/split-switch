@@ -1,13 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://k402iischqul"]
+[gd_scene load_steps=16 format=3 uid="uid://k402iischqul"]
 
 [ext_resource type="PackedScene" uid="uid://t6f5qrt5q1y8" path="res://scenes/player.tscn" id="1_nnsk1"]
 [ext_resource type="Script" uid="uid://rxkjf36lhreb" path="res://scenes/player_camera.gd" id="2_71j4m"]
 [ext_resource type="PackedScene" uid="uid://bx0r78ftiwib0" path="res://scenes/map_block.tscn" id="2_k0juu"]
 [ext_resource type="Shader" uid="uid://mrhnk5g6wtt4" path="res://assets/shaders/colour_tint.gdshader" id="2_qfnet"]
 [ext_resource type="Script" uid="uid://c1kjsfe6gm5b7" path="res://scenes/gameui.gd" id="3_k0juu"]
+[ext_resource type="PackedScene" uid="uid://c4rxhxx8y54re" path="res://scenes/up_pad.tscn" id="4_7r4gi"]
 [ext_resource type="FontFile" uid="uid://b6g10xbru6tmj" path="res://assets/fonts/PixeloidSans.ttf" id="4_k0juu"]
 [ext_resource type="Texture2D" uid="uid://diqyknw34qnin" path="res://assets/wasdtomove_white.png" id="6_qfnet"]
 [ext_resource type="Texture2D" uid="uid://doqpsdjqflamr" path="res://assets/spacetojump.png" id="8_4mrxx"]
+[ext_resource type="Script" uid="uid://cnehu5ioh8psg" path="res://scenes/game_script.gd" id="10_w7kh3"]
+[ext_resource type="AudioStream" uid="uid://bsqy3hctqyaoc" path="res://assets/sounds/ground_hit.ogg" id="11_e3hyu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71j4m"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -28,11 +31,10 @@ shader_parameter/tint_factor = 0.5
 shader_parameter/fade = 1.0
 
 [node name="World" type="Node2D"]
-position = Vector2(146, 8)
 
 [node name="Player" parent="." instance=ExtResource("1_nnsk1")]
-position = Vector2(204, 604)
-speed = 550
+position = Vector2(111, 0)
+speed = 450
 jump_force = 700
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -50,39 +52,49 @@ shakeFade = 10.0
 [node name="Blocks" type="Node2D" parent="."]
 
 [node name="MapBlock" parent="Blocks" instance=ExtResource("2_k0juu")]
-position = Vector2(467, 56)
-scale = Vector2(25.08, 6.2)
+position = Vector2(728, -73)
+scale = Vector2(42.1785, 5.41198)
+
+[node name="MapBlock9" parent="Blocks" instance=ExtResource("2_k0juu")]
+position = Vector2(1243, -365)
+scale = Vector2(91.3752, 5.41198)
 
 [node name="MapBlock7" parent="Blocks" instance=ExtResource("2_k0juu")]
-position = Vector2(-150, 56)
-scale = Vector2(6.68, 71.44)
+position = Vector2(0, 56)
+scale = Vector2(5.83097, 62.36)
 
 [node name="MapBlock8" parent="Blocks" instance=ExtResource("2_k0juu")]
-position = Vector2(169, -201)
-scale = Vector2(6.68, 71.44)
+position = Vector2(260, -176)
+scale = Vector2(5.83097, 62.36)
 
 [node name="MapBlock3" parent="Blocks" instance=ExtResource("2_k0juu")]
-position = Vector2(505, 404)
-scale = Vector2(29.96, 6.2)
+position = Vector2(556, 362)
+scale = Vector2(26.1521, 4.05198)
 
 [node name="MapBlock4" parent="Blocks" instance=ExtResource("2_k0juu")]
-position = Vector2(941, 547)
-scale = Vector2(7.48, 6.88)
+position = Vector2(1035, 524)
+scale = Vector2(4.52883, 4.16555)
 
 [node name="MapBlock6" parent="Blocks" instance=ExtResource("2_k0juu")]
-position = Vector2(1085, 284)
-scale = Vector2(7.48, 6.88)
+position = Vector2(1179, 431)
+scale = Vector2(4.52883, 4.16555)
+
+[node name="MapBlock10" parent="Blocks" instance=ExtResource("2_k0juu")]
+position = Vector2(840, 362)
+scale = Vector2(4.52883, 4.16555)
 
 [node name="MapBlock5" parent="Blocks" instance=ExtResource("2_k0juu")]
-position = Vector2(1213, 366)
-scale = Vector2(7.48, 26.88)
+position = Vector2(1276, 431)
+scale = Vector2(6.52929, 16.8644)
 
 [node name="MapBlock2" parent="Blocks" instance=ExtResource("2_k0juu")]
-position = Vector2(616, 662)
-scale = Vector2(75.96, 6.2)
+position = Vector2(667, 598)
+scale = Vector2(66.3055, 4.05198)
+
+[node name="UpPad" parent="Blocks" instance=ExtResource("4_7r4gi")]
+position = Vector2(1278, 191)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("3_k0juu")
 
 [node name="Glasses" type="Panel" parent="CanvasLayer"]
@@ -130,13 +142,29 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_qfnet")
 [node name="Sprite2D" type="Sprite2D" parent="Scenery"]
 z_index = -2
 material = SubResource("ShaderMaterial_i7141")
-position = Vector2(501, 524)
+position = Vector2(556, 485)
 scale = Vector2(3.76, 3.76)
 texture = ExtResource("6_qfnet")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Scenery"]
 z_index = -2
 material = SubResource("ShaderMaterial_i7141")
-position = Vector2(926, 404)
+position = Vector2(1034.32, 325.16)
 scale = Vector2(3.76, 3.76)
 texture = ExtResource("8_4mrxx")
+
+[node name="GameScript" type="Node2D" parent="."]
+script = ExtResource("10_w7kh3")
+
+[node name="Camera2D" type="Camera2D" parent="GameScript"]
+position = Vector2(0, 362)
+limit_left = -100
+limit_right = 2020
+limit_bottom = 1280
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
+editor_draw_limits = true
+script = ExtResource("2_71j4m")
+
+[node name="GroundHit" type="AudioStreamPlayer" parent="GameScript"]
+stream = ExtResource("11_e3hyu")
