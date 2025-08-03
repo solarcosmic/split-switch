@@ -1,16 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://k402iischqul"]
+[gd_scene load_steps=13 format=3 uid="uid://k402iischqul"]
 
 [ext_resource type="PackedScene" uid="uid://t6f5qrt5q1y8" path="res://scenes/player.tscn" id="1_nnsk1"]
 [ext_resource type="Script" uid="uid://rxkjf36lhreb" path="res://scenes/player_camera.gd" id="2_71j4m"]
 [ext_resource type="PackedScene" uid="uid://bx0r78ftiwib0" path="res://scenes/map_block.tscn" id="2_k0juu"]
+[ext_resource type="Shader" uid="uid://mrhnk5g6wtt4" path="res://assets/shaders/colour_tint.gdshader" id="2_qfnet"]
 [ext_resource type="Script" uid="uid://c1kjsfe6gm5b7" path="res://scenes/gameui.gd" id="3_k0juu"]
 [ext_resource type="FontFile" uid="uid://b6g10xbru6tmj" path="res://assets/fonts/PixeloidSans.ttf" id="4_k0juu"]
-
-[sub_resource type="QuadMesh" id="QuadMesh_nnsk1"]
-size = Vector2(1000, 100)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rwgxs"]
-size = Vector2(1001, 100)
+[ext_resource type="Texture2D" uid="uid://diqyknw34qnin" path="res://assets/wasdtomove_white.png" id="6_qfnet"]
+[ext_resource type="Texture2D" uid="uid://doqpsdjqflamr" path="res://assets/spacetojump.png" id="8_4mrxx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71j4m"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -24,7 +21,14 @@ shadow_color = Color(0, 0, 0, 0.521569)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qfnet"]
 bg_color = Color(0, 0, 0, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i7141"]
+shader = ExtResource("2_qfnet")
+shader_parameter/colour = Color(1, 1, 1, 1)
+shader_parameter/tint_factor = 0.5
+shader_parameter/fade = 1.0
+
 [node name="World" type="Node2D"]
+position = Vector2(146, 8)
 
 [node name="Player" parent="." instance=ExtResource("1_nnsk1")]
 position = Vector2(204, 604)
@@ -43,60 +47,23 @@ script = ExtResource("2_71j4m")
 randomStrength = 15.0
 shakeFade = 10.0
 
-[node name="Walls" type="Node2D" parent="."]
-visible = false
-
-[node name="Wall" type="StaticBody2D" parent="Walls"]
-position = Vector2(44, 621)
-scale = Vector2(0.0651956, -7.82647)
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Walls/Wall"]
-modulate = Color(0.197937, 0.197937, 0.197937, 1)
-mesh = SubResource("QuadMesh_nnsk1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall"]
-visible = false
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_rwgxs")
-
-[node name="Wall2" type="StaticBody2D" parent="Walls"]
-position = Vector2(691, 1077)
-rotation = -1.5708
-scale = Vector2(0.0651956, -7.82647)
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Walls/Wall2"]
-modulate = Color(0.197937, 0.197937, 0.197937, 1)
-rotation = -1.5708
-mesh = SubResource("QuadMesh_nnsk1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall2"]
-visible = false
-position = Vector2(-0.5, 0)
-rotation = -1.5708
-shape = SubResource("RectangleShape2D_rwgxs")
-
-[node name="Wall3" type="StaticBody2D" parent="Walls"]
-position = Vector2(1888, 626)
-scale = Vector2(0.0651956, -7.82647)
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Walls/Wall3"]
-modulate = Color(0.197937, 0.197937, 0.197937, 1)
-mesh = SubResource("QuadMesh_nnsk1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall3"]
-visible = false
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_rwgxs")
-
 [node name="Blocks" type="Node2D" parent="."]
 
 [node name="MapBlock" parent="Blocks" instance=ExtResource("2_k0juu")]
-position = Vector2(234, 56)
+position = Vector2(467, 56)
 scale = Vector2(25.08, 6.2)
 
+[node name="MapBlock7" parent="Blocks" instance=ExtResource("2_k0juu")]
+position = Vector2(-150, 56)
+scale = Vector2(6.68, 71.44)
+
+[node name="MapBlock8" parent="Blocks" instance=ExtResource("2_k0juu")]
+position = Vector2(169, -201)
+scale = Vector2(6.68, 71.44)
+
 [node name="MapBlock3" parent="Blocks" instance=ExtResource("2_k0juu")]
-position = Vector2(359, 405)
-scale = Vector2(40.28, 6.2)
+position = Vector2(505, 404)
+scale = Vector2(29.96, 6.2)
 
 [node name="MapBlock4" parent="Blocks" instance=ExtResource("2_k0juu")]
 position = Vector2(941, 547)
@@ -115,6 +82,7 @@ position = Vector2(616, 662)
 scale = Vector2(75.96, 6.2)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("3_k0juu")
 
 [node name="Glasses" type="Panel" parent="CanvasLayer"]
@@ -156,3 +124,19 @@ custom_minimum_size = Vector2(1280, 720)
 offset_right = 1280.0
 offset_bottom = 720.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qfnet")
+
+[node name="Scenery" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Scenery"]
+z_index = -2
+material = SubResource("ShaderMaterial_i7141")
+position = Vector2(501, 524)
+scale = Vector2(3.76, 3.76)
+texture = ExtResource("6_qfnet")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Scenery"]
+z_index = -2
+material = SubResource("ShaderMaterial_i7141")
+position = Vector2(926, 404)
+scale = Vector2(3.76, 3.76)
+texture = ExtResource("8_4mrxx")
