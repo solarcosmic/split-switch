@@ -11,6 +11,8 @@ func _ready():
 	create_tween().tween_property($Transition, "modulate:a", 0, 3).set_trans(Tween.TRANS_SINE)
 	await wait(3)
 	create_tween().tween_property($Glasses/Label, "modulate:a", 1, 1).set_trans(Tween.TRANS_SINE)
+	await wait(5)
+	create_tween().tween_property($Glasses/Label, "modulate:a", 0, 1).set_trans(Tween.TRANS_SINE)
 	# add code to fade in / out
 
 var total = 0

@@ -1,16 +1,17 @@
-[gd_scene load_steps=16 format=3 uid="uid://k402iischqul"]
+[gd_scene load_steps=17 format=3 uid="uid://k402iischqul"]
 
 [ext_resource type="PackedScene" uid="uid://t6f5qrt5q1y8" path="res://scenes/player.tscn" id="1_nnsk1"]
 [ext_resource type="Script" uid="uid://rxkjf36lhreb" path="res://scenes/player_camera.gd" id="2_71j4m"]
 [ext_resource type="PackedScene" uid="uid://bx0r78ftiwib0" path="res://scenes/map_block.tscn" id="2_k0juu"]
 [ext_resource type="Shader" uid="uid://mrhnk5g6wtt4" path="res://assets/shaders/colour_tint.gdshader" id="2_qfnet"]
 [ext_resource type="Script" uid="uid://c1kjsfe6gm5b7" path="res://scenes/gameui.gd" id="3_k0juu"]
-[ext_resource type="PackedScene" uid="uid://c4rxhxx8y54re" path="res://scenes/up_pad.tscn" id="4_7r4gi"]
+[ext_resource type="PackedScene" uid="uid://butetfp775kr3" path="res://scenes/up_pad.tscn" id="4_7r4gi"]
 [ext_resource type="FontFile" uid="uid://b6g10xbru6tmj" path="res://assets/fonts/PixeloidSans.ttf" id="4_k0juu"]
 [ext_resource type="Texture2D" uid="uid://diqyknw34qnin" path="res://assets/wasdtomove_white.png" id="6_qfnet"]
 [ext_resource type="Texture2D" uid="uid://doqpsdjqflamr" path="res://assets/spacetojump.png" id="8_4mrxx"]
 [ext_resource type="Script" uid="uid://cnehu5ioh8psg" path="res://scenes/game_script.gd" id="10_w7kh3"]
 [ext_resource type="AudioStream" uid="uid://bsqy3hctqyaoc" path="res://assets/sounds/ground_hit.ogg" id="11_e3hyu"]
+[ext_resource type="AudioStream" uid="uid://daio0bahybels" path="res://assets/sounds/initial.ogg" id="12_q5onr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71j4m"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -34,6 +35,8 @@ shader_parameter/fade = 1.0
 
 [node name="Player" parent="." instance=ExtResource("1_nnsk1")]
 position = Vector2(111, 0)
+collision_layer = 1
+collision_mask = 1
 speed = 450
 jump_force = 700
 
@@ -56,8 +59,8 @@ position = Vector2(728, -73)
 scale = Vector2(42.1785, 5.41198)
 
 [node name="MapBlock9" parent="Blocks" instance=ExtResource("2_k0juu")]
-position = Vector2(1243, -365)
-scale = Vector2(91.3752, 5.41198)
+position = Vector2(1155, -365)
+scale = Vector2(102.095, 5.41198)
 
 [node name="MapBlock7" parent="Blocks" instance=ExtResource("2_k0juu")]
 position = Vector2(0, 56)
@@ -79,6 +82,18 @@ scale = Vector2(4.52883, 4.16555)
 position = Vector2(1179, 431)
 scale = Vector2(4.52883, 4.16555)
 
+[node name="MapBlock11" parent="Blocks" instance=ExtResource("2_k0juu")]
+position = Vector2(1763, 400)
+scale = Vector2(23.7288, 4.16555)
+
+[node name="MapBlock12" parent="Blocks" instance=ExtResource("2_k0juu")]
+position = Vector2(1535, -67)
+scale = Vector2(13.4088, 4.16555)
+
+[node name="MapBlock13" parent="Blocks" instance=ExtResource("2_k0juu")]
+position = Vector2(1981, -67)
+scale = Vector2(13.4088, 4.16555)
+
 [node name="MapBlock10" parent="Blocks" instance=ExtResource("2_k0juu")]
 position = Vector2(840, 362)
 scale = Vector2(4.52883, 4.16555)
@@ -92,7 +107,10 @@ position = Vector2(667, 598)
 scale = Vector2(66.3055, 4.05198)
 
 [node name="UpPad" parent="Blocks" instance=ExtResource("4_7r4gi")]
-position = Vector2(1278, 191)
+position = Vector2(1278, 198)
+
+[node name="UpPad2" parent="Blocks" instance=ExtResource("4_7r4gi")]
+position = Vector2(1799, 289)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("3_k0juu")
@@ -168,3 +186,6 @@ script = ExtResource("2_71j4m")
 
 [node name="GroundHit" type="AudioStreamPlayer" parent="GameScript"]
 stream = ExtResource("11_e3hyu")
+
+[node name="Initial" type="AudioStreamPlayer" parent="GameScript"]
+stream = ExtResource("12_q5onr")

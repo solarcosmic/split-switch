@@ -12,8 +12,10 @@ func _ready():
 	await wait(0.075)
 	$Camera2D.apply_shake()
 	$GroundHit.play()
+	await wait(1.0)
 	# for some reason the code below seems to .. do it instantly?
 	create_tween().tween_property($"../Scenery/Sprite2D", "modulate:a", 0.5, 2).set_trans(Tween.TRANS_SINE)
 	create_tween().tween_property($"../Scenery/Sprite2D2", "modulate:a", 0.5, 2).set_trans(Tween.TRANS_SINE)
-	await wait(1.0)
-	
+	$"../Player/Camera2D".make_current()
+	$Initial.play()
+	$"../Player".physics_enabled = true
