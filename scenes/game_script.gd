@@ -6,7 +6,7 @@ func wait(amount):
 func _ready():
 	$Camera2D.make_current()
 	await wait(2.0)
-	create_tween().tween_property($"../Player", "position", Vector2($"../Player".position.x, 564), 0.05).set_trans(Tween.TRANS_LINEAR)
+	create_tween().tween_property($"../Player", "position", Vector2($"../Player".position.x, 565), 0.05).set_trans(Tween.TRANS_LINEAR)
 	await wait(0.075)
 	$Camera2D.apply_shake()
 	$GroundHit.play()
