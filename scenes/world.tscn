@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://k402iischqul"]
+[gd_scene load_steps=18 format=3 uid="uid://k402iischqul"]
 
 [ext_resource type="PackedScene" uid="uid://t6f5qrt5q1y8" path="res://scenes/player.tscn" id="1_nnsk1"]
 [ext_resource type="Script" uid="uid://rxkjf36lhreb" path="res://scenes/player_camera.gd" id="2_71j4m"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://cnehu5ioh8psg" path="res://scenes/game_script.gd" id="10_w7kh3"]
 [ext_resource type="AudioStream" uid="uid://bsqy3hctqyaoc" path="res://assets/sounds/ground_hit.ogg" id="11_e3hyu"]
 [ext_resource type="AudioStream" uid="uid://daio0bahybels" path="res://assets/sounds/initial.ogg" id="12_q5onr"]
+[ext_resource type="PackedScene" uid="uid://bx6erw5h0nc8" path="res://scenes/down_pad.tscn" id="13_jhx03"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71j4m"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -43,7 +44,7 @@ jump_force = 700
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -89.3333)
 limit_left = -100
-limit_right = 2020
+limit_right = 4040
 limit_bottom = 1280
 position_smoothing_speed = 2.0
 editor_draw_limits = true
@@ -188,3 +189,6 @@ stream = ExtResource("11_e3hyu")
 
 [node name="Initial" type="AudioStreamPlayer" parent="GameScript"]
 stream = ExtResource("12_q5onr")
+
+[node name="DownPad" parent="." instance=ExtResource("13_jhx03")]
+position = Vector2(1703, -242)

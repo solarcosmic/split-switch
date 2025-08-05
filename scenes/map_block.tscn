@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bx0r78ftiwib0"]
+[gd_scene load_steps=6 format=3 uid="uid://bx0r78ftiwib0"]
 
+[ext_resource type="Script" uid="uid://c556a8ornfe7b" path="res://scenes/map_block.gd" id="1_27b20"]
 [ext_resource type="Shader" uid="uid://mrhnk5g6wtt4" path="res://assets/shaders/colour_tint.gdshader" id="1_ckjku"]
-[ext_resource type="Texture2D" uid="uid://ujgl1qhc4j4i" path="res://assets/test_block.png" id="1_jdiq1"]
+[ext_resource type="Texture2D" uid="uid://j1apfvcocdl8" path="res://assets/pure_white.png" id="2_ckjku"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6n854"]
 
@@ -12,6 +13,7 @@ shader_parameter/tint_factor = 0.0
 shader_parameter/fade = 1.0
 
 [node name="MapBlock" type="StaticBody2D"]
+script = ExtResource("1_27b20")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.92, 0.92)
@@ -20,4 +22,4 @@ shape = SubResource("RectangleShape2D_6n854")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_27b20")
 scale = Vector2(0.58, 0.58)
-texture = ExtResource("1_jdiq1")
+texture = ExtResource("2_ckjku")

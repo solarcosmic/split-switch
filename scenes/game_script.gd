@@ -1,5 +1,5 @@
 extends Node2D
-
+var is_cutscene_finished = false
 func wait(amount):
 	await get_tree().create_timer(amount).timeout
 
