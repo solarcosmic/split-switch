@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://k402iischqul"]
+[gd_scene load_steps=22 format=3 uid="uid://k402iischqul"]
 
 [ext_resource type="PackedScene" uid="uid://t6f5qrt5q1y8" path="res://scenes/player.tscn" id="1_nnsk1"]
 [ext_resource type="Script" uid="uid://rxkjf36lhreb" path="res://scenes/player_camera.gd" id="2_71j4m"]
@@ -9,10 +9,14 @@
 [ext_resource type="FontFile" uid="uid://b6g10xbru6tmj" path="res://assets/fonts/PixeloidSans.ttf" id="4_k0juu"]
 [ext_resource type="Texture2D" uid="uid://diqyknw34qnin" path="res://assets/wasdtomove_white.png" id="6_qfnet"]
 [ext_resource type="Texture2D" uid="uid://doqpsdjqflamr" path="res://assets/spacetojump.png" id="8_4mrxx"]
+[ext_resource type="Texture2D" uid="uid://ca8fx2f2f5p25" path="res://assets/go_higher_left.png" id="10_o8fc1"]
 [ext_resource type="Script" uid="uid://cnehu5ioh8psg" path="res://scenes/game_script.gd" id="10_w7kh3"]
 [ext_resource type="AudioStream" uid="uid://bsqy3hctqyaoc" path="res://assets/sounds/ground_hit.ogg" id="11_e3hyu"]
+[ext_resource type="Texture2D" uid="uid://bkt2gg536h2cx" path="res://assets/go_lower.png" id="11_xo05s"]
 [ext_resource type="AudioStream" uid="uid://daio0bahybels" path="res://assets/sounds/initial.ogg" id="12_q5onr"]
 [ext_resource type="PackedScene" uid="uid://bx6erw5h0nc8" path="res://scenes/down_pad.tscn" id="13_jhx03"]
+[ext_resource type="Script" uid="uid://bb0facmapw7yc" path="res://scripts/triggers.gd" id="16_7t5mc"]
+[ext_resource type="PackedScene" uid="uid://b3m0mp2xxvdml" path="res://scenes/trigger.tscn" id="17_lakw3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71j4m"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -59,8 +63,8 @@ position = Vector2(728, -73)
 scale = Vector2(42.1785, 5.41198)
 
 [node name="MapBlock9" parent="Blocks" instance=ExtResource("2_k0juu")]
-position = Vector2(1155, -365)
-scale = Vector2(102.095, 5.41198)
+position = Vector2(1799, -365)
+scale = Vector2(164.615, 5.41198)
 
 [node name="MapBlock7" parent="Blocks" instance=ExtResource("2_k0juu")]
 position = Vector2(0, 56)
@@ -90,9 +94,17 @@ scale = Vector2(23.7288, 4.16555)
 position = Vector2(1535, -67)
 scale = Vector2(13.4088, 4.16555)
 
+[node name="MapBlock15" parent="Blocks" instance=ExtResource("2_k0juu")]
+position = Vector2(2588, 56)
+scale = Vector2(43.6888, 4.16555)
+
 [node name="MapBlock13" parent="Blocks" instance=ExtResource("2_k0juu")]
 position = Vector2(1981, -67)
 scale = Vector2(13.4088, 4.16555)
+
+[node name="MapBlock14" parent="Blocks" instance=ExtResource("2_k0juu")]
+position = Vector2(2141, 274)
+scale = Vector2(4.6088, 41.1256)
 
 [node name="MapBlock10" parent="Blocks" instance=ExtResource("2_k0juu")]
 position = Vector2(840, 362)
@@ -108,6 +120,9 @@ scale = Vector2(66.3055, 4.05198)
 
 [node name="UpPad" parent="Blocks" instance=ExtResource("4_7r4gi")]
 position = Vector2(1278, 198)
+
+[node name="UpPad3" parent="Blocks" instance=ExtResource("4_7r4gi")]
+position = Vector2(2231, -57)
 
 [node name="UpPad2" parent="Blocks" instance=ExtResource("4_7r4gi")]
 position = Vector2(1799, 180)
@@ -157,19 +172,35 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_qfnet")
 
 [node name="Scenery" type="Node2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="Scenery"]
+[node name="Hints" type="Node2D" parent="Scenery"]
+
+[node name="hint_wasd" type="Sprite2D" parent="Scenery/Hints"]
 z_index = -2
 material = SubResource("ShaderMaterial_i7141")
 position = Vector2(556, 485)
 scale = Vector2(3.76, 3.76)
 texture = ExtResource("6_qfnet")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Scenery"]
+[node name="hint_jump" type="Sprite2D" parent="Scenery/Hints"]
 z_index = -2
 material = SubResource("ShaderMaterial_i7141")
 position = Vector2(1034.32, 325.16)
 scale = Vector2(3.76, 3.76)
 texture = ExtResource("8_4mrxx")
+
+[node name="hint_uppad" type="Sprite2D" parent="Scenery/Hints"]
+z_index = -2
+material = SubResource("ShaderMaterial_i7141")
+position = Vector2(1459, 180)
+scale = Vector2(3.76, 3.76)
+texture = ExtResource("10_o8fc1")
+
+[node name="hint_downpad" type="Sprite2D" parent="Scenery/Hints"]
+z_index = -2
+material = SubResource("ShaderMaterial_i7141")
+position = Vector2(1981, -224)
+scale = Vector2(3.76, 3.76)
+texture = ExtResource("11_xo05s")
 
 [node name="GameScript" type="Node2D" parent="."]
 script = ExtResource("10_w7kh3")
@@ -192,3 +223,21 @@ stream = ExtResource("12_q5onr")
 
 [node name="DownPad" parent="." instance=ExtResource("13_jhx03")]
 position = Vector2(1703, -242)
+
+[node name="Triggers" type="Node2D" parent="."]
+script = ExtResource("16_7t5mc")
+
+[node name="Intro" type="Node2D" parent="Triggers"]
+visible = false
+
+[node name="hint_jump" parent="Triggers/Intro" instance=ExtResource("17_lakw3")]
+position = Vector2(840, 470)
+scale = Vector2(1, 12.32)
+
+[node name="hint_uppad" parent="Triggers/Intro" instance=ExtResource("17_lakw3")]
+position = Vector2(1047, 307)
+rotation = -1.5708
+scale = Vector2(1, 17.24)
+
+[connection signal="body_entered" from="Triggers/Intro/hint_jump" to="Triggers" method="_on_hint_jump_body_entered"]
+[connection signal="body_entered" from="Triggers/Intro/hint_uppad" to="Triggers" method="_on_hint_jump_body_entered"]
