@@ -17,5 +17,6 @@ func _ready():
 	create_tween().tween_property($"../Scenery/Sprite2D", "modulate:a", 0.5, 2).set_trans(Tween.TRANS_SINE)
 	create_tween().tween_property($"../Scenery/Sprite2D2", "modulate:a", 0.5, 2).set_trans(Tween.TRANS_SINE)
 	$"../Player/Camera2D".make_current()
+	$"../Player/Camera2D".position_smoothing_enabled = true
 	$Initial.play()
 	$"../Player".physics_enabled = true

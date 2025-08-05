@@ -45,7 +45,6 @@ position = Vector2(0, -89.3333)
 limit_left = -100
 limit_right = 2020
 limit_bottom = 1280
-position_smoothing_enabled = true
 position_smoothing_speed = 2.0
 editor_draw_limits = true
 script = ExtResource("2_71j4m")
@@ -83,7 +82,7 @@ position = Vector2(1179, 431)
 scale = Vector2(4.52883, 4.16555)
 
 [node name="MapBlock11" parent="Blocks" instance=ExtResource("2_k0juu")]
-position = Vector2(1763, 400)
+position = Vector2(1763, 291)
 scale = Vector2(23.7288, 4.16555)
 
 [node name="MapBlock12" parent="Blocks" instance=ExtResource("2_k0juu")]
@@ -110,7 +109,7 @@ scale = Vector2(66.3055, 4.05198)
 position = Vector2(1278, 198)
 
 [node name="UpPad2" parent="Blocks" instance=ExtResource("4_7r4gi")]
-position = Vector2(1799, 289)
+position = Vector2(1799, 180)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("3_k0juu")
@@ -175,7 +174,7 @@ texture = ExtResource("8_4mrxx")
 script = ExtResource("10_w7kh3")
 
 [node name="Camera2D" type="Camera2D" parent="GameScript"]
-position = Vector2(0, 362)
+position = Vector2(0, 502)
 limit_left = -100
 limit_right = 2020
 limit_bottom = 1280
