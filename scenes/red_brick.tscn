@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://caseatemxmm1r"]
+
+[ext_resource type="Shader" uid="uid://mrhnk5g6wtt4" path="res://assets/shaders/colour_tint.gdshader" id="1_diwn3"]
+[ext_resource type="Script" uid="uid://c1wu0wrmhds8c" path="res://scenes/red_brick.gd" id="1_sym6f"]
+[ext_resource type="Texture2D" uid="uid://j1apfvcocdl8" path="res://assets/pure_white.png" id="2_sym6f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yqtr4"]
+shader = ExtResource("1_diwn3")
+shader_parameter/colour = Color(0.919281, 4.47616e-06, 1.15514e-06, 1)
+shader_parameter/tint_factor = 0.77
+shader_parameter/fade = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3vqe"]
+size = Vector2(32, 5)
+
+[node name="RedBrick" type="Area2D"]
+script = ExtResource("1_sym6f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_yqtr4")
+scale = Vector2(1, 0.16)
+texture = ExtResource("2_sym6f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_k3vqe")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
