@@ -62,148 +62,192 @@ shakeFade = 10.0
 
 [node name="Blocks" type="Node2D" parent="."]
 
-[node name="MapBlock" parent="Blocks" instance=ExtResource("2_k0juu")]
+[node name="Level1" type="Node2D" parent="Blocks"]
+
+[node name="MapBlock" parent="Blocks/Level1" instance=ExtResource("2_k0juu")]
 position = Vector2(728, -73)
 scale = Vector2(42.1785, 5.41198)
 
-[node name="MapBlock9" parent="Blocks" instance=ExtResource("2_k0juu")]
+[node name="MapBlock9" parent="Blocks/Level1" instance=ExtResource("2_k0juu")]
 position = Vector2(1799, -365)
 scale = Vector2(164.615, 5.41198)
 
-[node name="MapBlock7" parent="Blocks" instance=ExtResource("2_k0juu")]
+[node name="MapBlock7" parent="Blocks/Level1" instance=ExtResource("2_k0juu")]
 position = Vector2(0, 56)
 scale = Vector2(5.83097, 62.36)
 
-[node name="MapBlock8" parent="Blocks" instance=ExtResource("2_k0juu")]
+[node name="MapBlock8" parent="Blocks/Level1" instance=ExtResource("2_k0juu")]
 position = Vector2(260, -176)
 scale = Vector2(5.83097, 62.36)
 
-[node name="MapBlock3" parent="Blocks" instance=ExtResource("2_k0juu")]
+[node name="MapBlock3" parent="Blocks/Level1" instance=ExtResource("2_k0juu")]
 position = Vector2(556, 362)
 scale = Vector2(26.1521, 4.05198)
 
-[node name="MapBlock4" parent="Blocks" instance=ExtResource("2_k0juu")]
+[node name="MapBlock4" parent="Blocks/Level1" instance=ExtResource("2_k0juu")]
 position = Vector2(1035, 524)
 scale = Vector2(4.52883, 4.16555)
 
-[node name="MapBlock6" parent="Blocks" instance=ExtResource("2_k0juu")]
+[node name="MapBlock6" parent="Blocks/Level1" instance=ExtResource("2_k0juu")]
 position = Vector2(1179, 431)
 scale = Vector2(4.52883, 4.16555)
 
-[node name="MapBlock11" parent="Blocks" instance=ExtResource("2_k0juu")]
+[node name="MapBlock11" parent="Blocks/Level1" instance=ExtResource("2_k0juu")]
 position = Vector2(1763, 291)
 scale = Vector2(23.7288, 4.16555)
 
-[node name="MapBlock12" parent="Blocks" instance=ExtResource("2_k0juu")]
+[node name="MapBlock12" parent="Blocks/Level1" instance=ExtResource("2_k0juu")]
 position = Vector2(1535, -67)
 scale = Vector2(13.4088, 4.16555)
 
-[node name="MapBlock15" parent="Blocks" instance=ExtResource("2_k0juu")]
+[node name="MapBlock15" parent="Blocks/Level1" instance=ExtResource("2_k0juu")]
 position = Vector2(2588, 56)
 scale = Vector2(43.6888, 4.16555)
 
-[node name="MapBlock17" parent="Blocks" instance=ExtResource("2_k0juu")]
+[node name="MapBlock17" parent="Blocks/Level1" instance=ExtResource("2_k0juu")]
 position = Vector2(2835, 362)
 scale = Vector2(43.6888, 4.16555)
 
-[node name="MapBlock18" parent="Blocks" instance=ExtResource("2_k0juu")]
+[node name="MapBlock18" parent="Blocks/Level1" instance=ExtResource("2_k0juu")]
 position = Vector2(2575, 660)
 scale = Vector2(15.8888, 4.16555)
 
-[node name="MapBlock20" parent="Blocks" instance=ExtResource("2_k0juu")]
+[node name="MapBlock20" parent="Blocks/Level1" instance=ExtResource("2_k0juu")]
 position = Vector2(2432, 1145)
 scale = Vector2(29.5688, 24.7655)
 
-[node name="MapBlock22" parent="Blocks" instance=ExtResource("2_k0juu")]
+[node name="MapBlock22" parent="Blocks/Level1" instance=ExtResource("2_k0juu")]
 position = Vector2(1652, 1741)
 scale = Vector2(180.889, 4.16555)
 
-[node name="MapBlock24" parent="Blocks" instance=ExtResource("2_k0juu")]
+[node name="MapBlock24" parent="Blocks/Level1" instance=ExtResource("2_k0juu")]
 position = Vector2(840, 1336)
 scale = Vector2(135.729, 4.16555)
 
-[node name="MapBlock19" parent="Blocks" instance=ExtResource("2_k0juu")]
+[node name="MapBlock19" parent="Blocks/Level1" instance=ExtResource("2_k0juu")]
 position = Vector2(3096, 660)
 scale = Vector2(15.8888, 4.16555)
 
-[node name="MapBlock13" parent="Blocks" instance=ExtResource("2_k0juu")]
+[node name="MapBlock13" parent="Blocks/Level1" instance=ExtResource("2_k0juu")]
 position = Vector2(1981, -67)
 scale = Vector2(13.4088, 4.16555)
 
-[node name="MapBlock14" parent="Blocks" instance=ExtResource("2_k0juu")]
+[node name="MapBlock14" parent="Blocks/Level1" instance=ExtResource("2_k0juu")]
 position = Vector2(2141, 635)
 scale = Vector2(4.6088, 79.8056)
 
-[node name="MapBlock25" parent="Blocks" instance=ExtResource("2_k0juu")]
+[node name="MapBlock25" parent="Blocks/Level1" instance=ExtResource("2_k0juu")]
 position = Vector2(0, 240)
 scale = Vector2(4.6088, 79.8056)
 
-[node name="MapBlock21" parent="Blocks" instance=ExtResource("2_k0juu")]
+[node name="MapBlock21" parent="Blocks/Level1" instance=ExtResource("2_k0juu")]
 position = Vector2(2992, 1020)
 scale = Vector2(4.6088, 38.0856)
 
-[node name="MapBlock23" parent="Blocks" instance=ExtResource("2_k0juu")]
+[node name="MapBlock23" parent="Blocks/Level1" instance=ExtResource("2_k0juu")]
 position = Vector2(2679, 1020)
 scale = Vector2(4.6088, 38.0856)
 
-[node name="MapBlock16" parent="Blocks" instance=ExtResource("2_k0juu")]
+[node name="MapBlock16" parent="Blocks/Level1" instance=ExtResource("2_k0juu")]
 position = Vector2(3285, 660)
 scale = Vector2(4.6088, 115.646)
 
-[node name="MapBlock10" parent="Blocks" instance=ExtResource("2_k0juu")]
+[node name="MapBlock10" parent="Blocks/Level1" instance=ExtResource("2_k0juu")]
 position = Vector2(840, 362)
 scale = Vector2(4.52883, 4.16555)
 
-[node name="MapBlock5" parent="Blocks" instance=ExtResource("2_k0juu")]
+[node name="MapBlock5" parent="Blocks/Level1" instance=ExtResource("2_k0juu")]
 position = Vector2(1276, 458)
 scale = Vector2(6.52929, 19.2244)
 
-[node name="MapBlock2" parent="Blocks" instance=ExtResource("2_k0juu")]
+[node name="MapBlock2" parent="Blocks/Level1" instance=ExtResource("2_k0juu")]
 position = Vector2(667, 598)
 scale = Vector2(66.3055, 4.05198)
 
-[node name="UpPad" parent="Blocks" instance=ExtResource("4_7r4gi")]
+[node name="UpPad" parent="Blocks/Level1" instance=ExtResource("4_7r4gi")]
 position = Vector2(1278, 205)
 
-[node name="UpPad4" parent="Blocks" instance=ExtResource("4_7r4gi")]
+[node name="UpPad4" parent="Blocks/Level1" instance=ExtResource("4_7r4gi")]
 position = Vector2(2231, 840)
 
-[node name="UpPad3" parent="Blocks" instance=ExtResource("4_7r4gi")]
+[node name="UpPad3" parent="Blocks/Level1" instance=ExtResource("4_7r4gi")]
 position = Vector2(2231, -57)
 
-[node name="UpPad2" parent="Blocks" instance=ExtResource("4_7r4gi")]
+[node name="UpPad2" parent="Blocks/Level1" instance=ExtResource("4_7r4gi")]
 position = Vector2(1799, 180)
 
-[node name="RedBrick" parent="Blocks" instance=ExtResource("5_lakw3")]
+[node name="RedBrick" parent="Blocks/Level1" instance=ExtResource("5_lakw3")]
 position = Vector2(2428, 8)
 scale = Vector2(2.64001, 3.24)
 
-[node name="RedBrick2" parent="Blocks" instance=ExtResource("5_lakw3")]
+[node name="RedBrick2" parent="Blocks/Level1" instance=ExtResource("5_lakw3")]
 position = Vector2(2679, 8)
 scale = Vector2(2.64001, 3.24)
 
-[node name="RedBrick3" parent="Blocks" instance=ExtResource("5_lakw3")]
+[node name="RedBrick3" parent="Blocks/Level1" instance=ExtResource("5_lakw3")]
 position = Vector2(2949, 8)
 scale = Vector2(2.64001, 3.24)
 
-[node name="RedBrick4" parent="Blocks" instance=ExtResource("5_lakw3")]
+[node name="RedBrick4" parent="Blocks/Level1" instance=ExtResource("5_lakw3")]
 position = Vector2(2575, 316)
 scale = Vector2(2.64001, 3.24)
 
-[node name="RedBrick5" parent="Blocks" instance=ExtResource("5_lakw3")]
+[node name="RedBrick5" parent="Blocks/Level1" instance=ExtResource("5_lakw3")]
 position = Vector2(2826, 316)
 scale = Vector2(2.64001, 3.24)
 
-[node name="RedBrick7" parent="Blocks" instance=ExtResource("5_lakw3")]
+[node name="RedBrick7" parent="Blocks/Level1" instance=ExtResource("5_lakw3")]
 position = Vector2(2575, 613)
 scale = Vector2(2.64001, 3.24)
 
-[node name="RedBrick6" parent="Blocks" instance=ExtResource("5_lakw3")]
+[node name="RedBrick6" parent="Blocks/Level1" instance=ExtResource("5_lakw3")]
 position = Vector2(3096, 316)
 scale = Vector2(2.64001, 3.24)
 
-[node name="GlassStand" parent="Blocks" instance=ExtResource("6_pm21f")]
+[node name="GlassStand" parent="Blocks/Level1" node_paths=PackedStringArray("player") instance=ExtResource("6_pm21f")]
 position = Vector2(417, 1623)
+player = NodePath("../../../Player")
+
+[node name="Level2" type="Node2D" parent="Blocks"]
+scale = Vector2(0.72, 0.72)
+
+[node name="MapBlock9" parent="Blocks/Level2" instance=ExtResource("2_k0juu")]
+position = Vector2(667, -7710)
+scale = Vector2(68.375, 5.41198)
+
+[node name="MapBlock10" parent="Blocks/Level2" instance=ExtResource("2_k0juu")]
+position = Vector2(667, -8591)
+scale = Vector2(68.375, 5.41198)
+
+[node name="MapBlock13" parent="Blocks/Level2" instance=ExtResource("2_k0juu")]
+position = Vector2(3115, -8192)
+rotation = -1.57079
+scale = Vector2(68.375, 5.41198)
+
+[node name="MapBlock15" parent="Blocks/Level2" instance=ExtResource("2_k0juu")]
+position = Vector2(5459, -8965)
+rotation = -1.57079
+scale = Vector2(68.375, 5.41198)
+
+[node name="MapBlock12" parent="Blocks/Level2" instance=ExtResource("2_k0juu")]
+position = Vector2(2183, -7610)
+scale = Vector2(94.415, 5.41198)
+
+[node name="MapBlock16" parent="Blocks/Level2" instance=ExtResource("2_k0juu")]
+position = Vector2(3534, -7760)
+scale = Vector2(40.175, 5.41198)
+
+[node name="MapBlock17" parent="Blocks/Level2" instance=ExtResource("2_k0juu")]
+position = Vector2(3974, -8777)
+scale = Vector2(87.655, 5.41198)
+
+[node name="MapBlock11" parent="Blocks/Level2" instance=ExtResource("2_k0juu")]
+position = Vector2(2239, -9647)
+scale = Vector2(94.415, 5.41198)
+
+[node name="MapBlock14" parent="Blocks/Level2" instance=ExtResource("2_k0juu")]
+position = Vector2(4284, -9647)
+scale = Vector2(132.175, 5.41198)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("3_k0juu")
@@ -327,8 +371,9 @@ scale = Vector2(1, 17.24)
 [node name="Portals" type="Node2D" parent="."]
 position = Vector2(5, 1623)
 
-[node name="Level1" parent="Portals" instance=ExtResource("21_7iits")]
+[node name="Level1" parent="Portals" node_paths=PackedStringArray("player") instance=ExtResource("21_7iits")]
 position = Vector2(106, 0)
+player = NodePath("../../Player")
 
 [connection signal="body_entered" from="Triggers/Intro/hint_jump" to="Triggers" method="_on_hint_jump_body_entered"]
 [connection signal="body_entered" from="Triggers/Intro/hint_uppad" to="Triggers" method="_on_hint_jump_body_entered"]
