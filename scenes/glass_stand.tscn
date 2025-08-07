@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://co7hoi7rijm4w"]
+
+[ext_resource type="Texture2D" uid="uid://ic12dttn2xjq" path="res://assets/red_glasses_stand.png" id="1_r0v2f"]
+[ext_resource type="Script" uid="uid://b8xvdyt77gdmf" path="res://scenes/glass_stand.gd" id="1_xaibk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r0v2f"]
+size = Vector2(300, 150)
+
+[node name="GlassStand" type="Node2D"]
+script = ExtResource("1_xaibk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = ExtResource("1_r0v2f")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 13)
+shape = SubResource("RectangleShape2D_r0v2f")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_glass_stand_body_entered"]

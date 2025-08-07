@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://k402iischqul"]
+[gd_scene load_steps=25 format=3 uid="uid://k402iischqul"]
 
 [ext_resource type="PackedScene" uid="uid://t6f5qrt5q1y8" path="res://scenes/player.tscn" id="1_nnsk1"]
 [ext_resource type="Script" uid="uid://rxkjf36lhreb" path="res://scenes/player_camera.gd" id="2_71j4m"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://butetfp775kr3" path="res://scenes/up_pad.tscn" id="4_7r4gi"]
 [ext_resource type="FontFile" uid="uid://b6g10xbru6tmj" path="res://assets/fonts/PixeloidSans.ttf" id="4_k0juu"]
 [ext_resource type="PackedScene" uid="uid://caseatemxmm1r" path="res://scenes/red_brick.tscn" id="5_lakw3"]
+[ext_resource type="PackedScene" uid="uid://co7hoi7rijm4w" path="res://scenes/glass_stand.tscn" id="6_pm21f"]
 [ext_resource type="Texture2D" uid="uid://diqyknw34qnin" path="res://assets/wasdtomove_white.png" id="6_qfnet"]
 [ext_resource type="Texture2D" uid="uid://doqpsdjqflamr" path="res://assets/spacetojump.png" id="8_4mrxx"]
 [ext_resource type="Texture2D" uid="uid://ca8fx2f2f5p25" path="res://assets/go_higher_left.png" id="10_o8fc1"]
@@ -17,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://daio0bahybels" path="res://assets/sounds/initial.ogg" id="12_q5onr"]
 [ext_resource type="PackedScene" uid="uid://bx6erw5h0nc8" path="res://scenes/down_pad.tscn" id="13_jhx03"]
 [ext_resource type="Script" path="res://scripts/triggers.gd" id="16_7t5mc"]
+[ext_resource type="AudioStream" uid="uid://che1pl7yrhkrl" path="res://scenes/collect_glasses.ogg" id="17_2lf6f"]
 [ext_resource type="PackedScene" uid="uid://b3m0mp2xxvdml" path="res://scenes/trigger.tscn" id="17_lakw3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71j4m"]
@@ -199,6 +201,9 @@ scale = Vector2(2.64001, 3.24)
 position = Vector2(3096, 316)
 scale = Vector2(2.64001, 3.24)
 
+[node name="GlassStand" parent="Blocks" instance=ExtResource("6_pm21f")]
+position = Vector2(206, 1623)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("3_k0juu")
 
@@ -296,6 +301,9 @@ stream = ExtResource("11_e3hyu")
 
 [node name="Initial" type="AudioStreamPlayer" parent="GameScript"]
 stream = ExtResource("12_q5onr")
+
+[node name="CollectGlasses" type="AudioStreamPlayer" parent="GameScript"]
+stream = ExtResource("17_2lf6f")
 
 [node name="DownPad" parent="." instance=ExtResource("13_jhx03")]
 position = Vector2(1703, -242)
