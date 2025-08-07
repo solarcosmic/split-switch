@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://k402iischqul"]
+[gd_scene load_steps=26 format=3 uid="uid://k402iischqul"]
 
 [ext_resource type="PackedScene" uid="uid://t6f5qrt5q1y8" path="res://scenes/player.tscn" id="1_nnsk1"]
 [ext_resource type="Script" uid="uid://rxkjf36lhreb" path="res://scenes/player_camera.gd" id="2_71j4m"]
@@ -17,9 +17,10 @@
 [ext_resource type="Texture2D" uid="uid://bkt2gg536h2cx" path="res://assets/go_lower.png" id="11_xo05s"]
 [ext_resource type="AudioStream" uid="uid://daio0bahybels" path="res://assets/sounds/initial.ogg" id="12_q5onr"]
 [ext_resource type="PackedScene" uid="uid://bx6erw5h0nc8" path="res://scenes/down_pad.tscn" id="13_jhx03"]
-[ext_resource type="Script" path="res://scripts/triggers.gd" id="16_7t5mc"]
+[ext_resource type="Script" uid="uid://bb0facmapw7yc" path="res://scripts/triggers.gd" id="16_7t5mc"]
 [ext_resource type="AudioStream" uid="uid://che1pl7yrhkrl" path="res://scenes/collect_glasses.ogg" id="17_2lf6f"]
 [ext_resource type="PackedScene" uid="uid://b3m0mp2xxvdml" path="res://scenes/trigger.tscn" id="17_lakw3"]
+[ext_resource type="PackedScene" uid="uid://d1otplhybeqpk" path="res://scenes/portal.tscn" id="21_7iits"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71j4m"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -202,7 +203,7 @@ position = Vector2(3096, 316)
 scale = Vector2(2.64001, 3.24)
 
 [node name="GlassStand" parent="Blocks" instance=ExtResource("6_pm21f")]
-position = Vector2(206, 1623)
+position = Vector2(417, 1623)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("3_k0juu")
@@ -322,6 +323,12 @@ scale = Vector2(1, 12.32)
 position = Vector2(1047, 307)
 rotation = -1.5708
 scale = Vector2(1, 17.24)
+
+[node name="Portals" type="Node2D" parent="."]
+position = Vector2(5, 1623)
+
+[node name="Level1" parent="Portals" instance=ExtResource("21_7iits")]
+position = Vector2(106, 0)
 
 [connection signal="body_entered" from="Triggers/Intro/hint_jump" to="Triggers" method="_on_hint_jump_body_entered"]
 [connection signal="body_entered" from="Triggers/Intro/hint_uppad" to="Triggers" method="_on_hint_jump_body_entered"]
